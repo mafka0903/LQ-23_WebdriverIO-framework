@@ -1,15 +1,14 @@
-import { expect } from '@wdio/globals'
-import LoginPage from '../pageobjects/login.page.js'
-import SecurePage from '../pageobjects/secure.page.js'
+import { expect } from "@wdio/globals";
+import homePage from "../pageobjects/homePage.ts";
 
-describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        await LoginPage.open()
+describe("telnyx-1 Home page actions", () => {
+  it("checking the opening of the main page", async () => {
+    await homePage.open();
 
-        await LoginPage.login('tomsmith', 'SuperSecretPassword!')
-        await expect(SecurePage.flashAlert).toBeExisting()
-        await expect(SecurePage.flashAlert).toHaveText(
-            expect.stringContaining('You logged into a secure area!'))
-    })
-})
-
+    await expect(homePage.telnyxSvg).toBeExisting();
+    await expect(homePage.mainMenu).toBeExisting();
+    await expect(homePage.expiriensAI).toHaveText(
+      expect.stringContaining("Experience ")
+    );
+  });
+});
