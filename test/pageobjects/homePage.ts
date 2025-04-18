@@ -1,7 +1,6 @@
-import { $ } from "@wdio/globals";
-import Page from "./basePage.ts";
+import basePage from "./basePage.ts";
 
-class homePage extends Page {
+class homePage extends basePage {
   public open() {
     return super.open("");
   }
@@ -9,13 +8,30 @@ class homePage extends Page {
   public get telnyxSvg() {
     return $(".c-UazGY .mchNoDecorate svg");
   }
-
   public get mainMenu() {
     return $("#main-menu");
   }
-
   public get expiriensAI() {
     return $("h1 .c-PJLV");
+  }
+
+  public get menuElements() {
+    return $$(".c-swQxl");
+  }
+  public get dropdownProducts() {
+    return $(".c-jLWzSx");
+  }
+
+  public get headerOptions() {
+    return $$("div .c-hzhYFJ");
+  }
+
+  public get sotialTable() {
+    return $$("ul.c-ejcPbY");
+  }
+
+  public get footerSocial() {
+    return $$(".c-ejcPbY .c-tKuzq.mchNoDecorate");
   }
 
   /**
@@ -23,15 +39,20 @@ class homePage extends Page {
    * e.g. to login using username and password
    */
 
-  // public async login(username: string, password: string) {
-  //   await this.inputUsername.setValue(username);
-  //   await this.inputPassword.setValue(password);
-  //   await this.btnSubmit.click();
-  // }
+  public async clickProducts() {
+    await this.menuElements[0].click();
+  }
 
-  /**
-   * overwrite specific options to adapt it to page object
-   */
+  public async clickPricing() {
+    await this.menuElements[2].click();
+  }
+
+  public async clickContactUs() {
+    await this.headerOptions[2].click();
+  }
+  public async clickShop() {
+    await this.headerOptions[1].click();
+  }
 }
 
 export default new homePage();

@@ -52,6 +52,9 @@ export const config: WebdriverIO.Config = {
   capabilities: [
     {
       browserName: "chrome",
+      "goog:chromeOptions": {
+        args: ["--window-size=1280,800"],
+      },
     },
     // {
     //   browserName: "firefox",

@@ -8,5 +8,8 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.ts"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.7.0"
   }
 }

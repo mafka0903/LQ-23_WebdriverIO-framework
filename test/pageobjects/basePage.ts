@@ -1,6 +1,6 @@
 import { browser } from "@wdio/globals";
 
-export default class Page {
+export default class basePage {
   public open(path: string) {
     return browser.url(`${path}`);
   }
