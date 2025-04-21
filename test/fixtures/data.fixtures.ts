@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 
 export const testData = {
-  DataForContactUs: {
+  DataForContactForms: {
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),
     businessEmail: faker.internet.email(),
@@ -18,6 +18,10 @@ export const testData = {
     telnyxHat: "Telnyx Classic Hat",
   },
 
+  Currency: {
+    UA: "₴",
+  },
+
   ExpectedText: {
     upperText: "Experience AI-powered connectivity",
   },
@@ -29,4 +33,5 @@ export const urls = {
   linkedinTelnyx: "https://www.linkedin.com/company/telnyx/",
   twitterTelnyx: "https://twitter.com/telnyx",
   facebookTelnyx: "https://www.facebook.com/Telnyx/",
+  singUpPage: "https://telnyx.com/sign-up",
 };

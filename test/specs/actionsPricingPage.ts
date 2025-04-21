@@ -7,16 +7,18 @@ describe("Pricing page actions", () => {
   beforeEach(() => {
     homePage.open();
   });
-  it("telnyx-10 Check that Download pricing is performed successfully", async () => {
-    await homePage.clickPricing();
+  it("telnyx-6 Check that Download pricing is performed successfully", async () => {
+    await homePage.clickMenuElements(2);
     await pricingPage.clickMessagingAPI();
     await pricingPage.downloadFirstName.waitForDisplayed({ timeout: 20000 });
     await pricingPage.typeDownloadFirstName(
-      testData.DataForContactUs.firstName
+      testData.DataForContactForms.firstName
     );
-    await pricingPage.typeDownloadLastName(testData.DataForContactUs.lastName);
+    await pricingPage.typeDownloadLastName(
+      testData.DataForContactForms.lastName
+    );
     await pricingPage.typeDownloadBussinessEmail(
-      testData.DataForContactUs.businessEmail
+      testData.DataForContactForms.businessEmail
     );
 
     await pricingPage.clickDownlosdSubmitButton();

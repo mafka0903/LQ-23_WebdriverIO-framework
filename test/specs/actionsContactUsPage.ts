@@ -7,44 +7,48 @@ describe("ContactUs page actions", () => {
   beforeEach(() => {
     homePage.open();
   });
-  it("telnyx-4 Checking that the contact form is sent successfully when all required fields are filled in", async () => {
-    await homePage.clickContactUs();
+  it("telnyx-2 Checking that the contact form is sent successfully when all required fields are filled in", async () => {
+    await homePage.clickHeaderOptions(2);
     await contactUsPage.selectSupport(testData.Dropdown.reasonForContact);
-    await contactUsPage.typeFirstName(testData.DataForContactUs.firstName);
-    await contactUsPage.typeLastName(testData.DataForContactUs.lastName);
+    await contactUsPage.typeFirstName(testData.DataForContactForms.firstName);
+    await contactUsPage.typeLastName(testData.DataForContactForms.lastName);
     await contactUsPage.typeBusinessEmail(
-      testData.DataForContactUs.businessEmail
+      testData.DataForContactForms.businessEmail
     );
     await contactUsPage.selectCountry(testData.Dropdown.phoneCode);
-    await contactUsPage.typePhoneNumber(testData.DataForContactUs.phoneNumber);
+    await contactUsPage.typePhoneNumber(
+      testData.DataForContactForms.phoneNumber
+    );
     await contactUsPage.typeCompanyWebsite(
-      testData.DataForContactUs.companyWebsite
+      testData.DataForContactForms.companyWebsite
     );
     await contactUsPage.typeRequestDescribe(
-      testData.DataForContactUs.requestDescribe
+      testData.DataForContactForms.requestDescribe
     );
     await contactUsPage.typeHowHearAbout(
-      testData.DataForContactUs.howHearAbout
+      testData.DataForContactForms.howHearAbout
     );
     await contactUsPage.clickSubmitButton();
     await expect(contactUsPage.messageSuccessfulSend).toBeExisting();
   });
 
-  it("telnyx-5 Checking that the contact form submission does not occur if there are no required fields", async () => {
-    await homePage.clickContactUs();
+  it("telnyx-3 Checking that the contact form submission does not occur if there are no required fields", async () => {
+    await homePage.clickHeaderOptions(2);
     await contactUsPage.selectSupport(testData.Dropdown.reasonForContact);
-    await contactUsPage.typeFirstName(testData.DataForContactUs.firstName);
-    await contactUsPage.typeLastName(testData.DataForContactUs.lastName);
+    await contactUsPage.typeFirstName(testData.DataForContactForms.firstName);
+    await contactUsPage.typeLastName(testData.DataForContactForms.lastName);
     await contactUsPage.typeBusinessEmail(
-      testData.DataForContactUs.businessEmail
+      testData.DataForContactForms.businessEmail
     );
     await contactUsPage.selectCountry(testData.Dropdown.phoneCode);
-    await contactUsPage.typePhoneNumber(testData.DataForContactUs.phoneNumber);
+    await contactUsPage.typePhoneNumber(
+      testData.DataForContactForms.phoneNumber
+    );
     await contactUsPage.typeCompanyWebsite(
-      testData.DataForContactUs.companyWebsite
+      testData.DataForContactForms.companyWebsite
     );
     await contactUsPage.typeRequestDescribe(
-      testData.DataForContactUs.requestDescribe
+      testData.DataForContactForms.requestDescribe
     );
     await contactUsPage.clickSubmitButton();
     await expect(contactUsPage.messageEmptyField).toBeExisting();
