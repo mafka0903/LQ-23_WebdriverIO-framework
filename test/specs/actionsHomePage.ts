@@ -5,7 +5,7 @@ import { testData, urls } from "../fixtures/data.fixtures.ts";
 describe("Home page actions", () => {
   beforeEach(() => {
     homePage.open();
-    browser.pause(2000);
+    browser.pause(5000);
   });
 
   it("telnyx-1 Check that selecting a menu option without a dropdown redirects the user to the new page", async () => {
@@ -53,7 +53,7 @@ describe("Home page actions", () => {
 
   it("telnyx-8 Check that drobdown of Why Telnyx in the main menu is full", async () => {
     await homePage.clickMenuElements(3);
-    await browser.pause(2000);
+    await browser.pause(16000);
     await homePage.dropdownWhyTelnyx[0].waitForDisplayed();
     const dropdownItems = homePage.dropdownWhyTelnyx;
 
