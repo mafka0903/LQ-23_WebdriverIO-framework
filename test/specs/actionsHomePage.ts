@@ -56,7 +56,6 @@ describe("Home page actions", () => {
     await browser.pause(16000);
     await homePage.dropdownWhyTelnyx[0].waitForDisplayed();
     const dropdownItems = homePage.dropdownWhyTelnyx;
-
     await expect(dropdownItems).toBeElementsArrayOfSize(4);
   });
 
@@ -90,12 +89,31 @@ describe("Home page actions", () => {
     await expect(homePage.sendQestionButton).toBeEnabled();
   });
 
-  // it.only("telnyx-12 Check that user cant send uncorrect email on Connect with us field on the bottom of page", async () => {
-  //   await homePage.enterBussinesEmailField.scrollIntoView();
-  //   await homePage.typeBussinesEmail(
-  //     testData.DataForContactForms.requestDescribe
-  //   );
-  //   await homePage.clickSubmitButton();
-  //   await expect(homePage.messageNorCorrectEmail).toBeDisplayed();
-  // });
+  it("telnyx-12 Check that drobdown of Resourses in the main menu is full", async () => {
+    await homePage.clickMenuElements(4);
+    await browser.pause(16000);
+    await homePage.dropdownRecources[0].waitForDisplayed();
+    const dropdownItems = homePage.dropdownRecources;
+    await expect(dropdownItems).toBeElementsArrayOfSize(3);
+  });
+
+  it("telnyx-13 Check that drobdown of Developers in the main menu is full", async () => {
+    await homePage.clickMenuElements(5);
+    await browser.pause(16000);
+    await homePage.dropdownDevelopers[0].waitForDisplayed();
+    const dropdownItems = homePage.dropdownDevelopers;
+    await expect(dropdownItems).toBeElementsArrayOfSize(3);
+  });
+
+  it("telnyx-15 Check that user navigate to a different domain page when clicking LOG IN", async () => {
+    const logInLink = homePage.headerOptions[3];
+
+    await logInLink.waitForDisplayed({ timeout: 15000 });
+
+    const href = await logInLink.getAttribute("href");
+    const target = await logInLink.getAttribute("target");
+
+    expect(href).toBe(urls.logInPage);
+    expect(target).toBe("_blank");
+  });
 });

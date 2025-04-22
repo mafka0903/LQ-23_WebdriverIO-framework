@@ -34,4 +34,5 @@ export const urls = {
   twitterTelnyx: "https://twitter.com/telnyx",
   facebookTelnyx: "https://www.facebook.com/Telnyx/",
   singUpPage: "https://telnyx.com/sign-up",
+  logInPage: "https://portal.telnyx.com",
 };

@@ -89,6 +89,14 @@ class homePage extends basePage {
     return $('#email[data-gtm-form-interact-field-id="0"]');
   }
 
+  public get dropdownRecources() {
+    return $$(".c-cfIhzf");
+  }
+
+  public get dropdownDevelopers() {
+    return $$(".c-cfIhzf");
+  }
+
   public async clickMenuElements(index: number) {
     await this.menuElements[index].click();
   }

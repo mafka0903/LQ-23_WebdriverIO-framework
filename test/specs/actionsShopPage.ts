@@ -7,17 +7,7 @@ describe("Shop page actions", () => {
     browser.url(urls.shopPage);
   });
 
-  // it.only("telnyx-13 Checking the search function", async () => {
-  //   await shopPage.clickSearchIcon();
-  //   await shopPage.typeSearchField(testData.Products.telnyxHat);
-  //   await shopPage.clickSearchFieldButton();
-
-  //   const productName = await shopPage.productNameCard.getText();
-
-  //   expect(productName.trim()).toBe(testData.Products.telnyxHat);
-  // });
-
-  it("telnyx-14 Сhecking that the currency changes when changing Country/region", async () => {
+  it("telnyx-15 Сhecking that the currency changes when changing Country/region", async () => {
     await shopPage.footer.scrollIntoView();
     await shopPage.clickLocalizationButton();
     await shopPage.clickCountryChose();
@@ -25,7 +15,7 @@ describe("Shop page actions", () => {
     expect(priceText).toContain(testData.Currency.UA);
   });
 
-  it("telnyx-15 Сhecking that the filter Availability is working correctly", async () => {
+  it("telnyx-16 Сhecking that the filter Availability is working correctly", async () => {
     await shopPage.clickHeaderMenuShop();
     await shopPage.clickButtonAvailiability();
     await shopPage.clickSelectAvailiability();
@@ -39,7 +29,7 @@ describe("Shop page actions", () => {
     expect(availableCount).toEqual(productCount);
   });
 
-  it("telnyx-16 Сhecking that sorting products Alphabetically(A-Z) is working correctly", async () => {
+  it("telnyx-17 Сhecking that sorting products Alphabetically(A-Z) is working correctly", async () => {
     await shopPage.clickHeaderMenuShop();
     await shopPage.clickSortContainer();
     await shopPage.clickSortByOptions(2);
@@ -48,7 +38,7 @@ describe("Shop page actions", () => {
     expect(productList).toEqual(sortedNames);
   });
 
-  it("telnyx-17 Сhecking that sorting products by Price (low to high) is working correctly", async () => {
+  it("telnyx-18 Сhecking that sorting products by Price (low to high) is working correctly", async () => {
     await shopPage.clickHeaderMenuShop();
     await shopPage.clickSortContainer();
     await shopPage.clickSortByOptions(4);
@@ -59,12 +49,6 @@ describe("Shop page actions", () => {
     let sortedPriceList = [...priceListFloat].sort((a, b) => a - b);
     expect(priceListFloat).toEqual(sortedPriceList);
   });
-
-  // it("telnyx-18 Checking that the user has the ability to add a product to the cart", async () => {
-  //   await shopPage.clickHeaderMenuShop();
-  //   await shopPage.clickAddToCard();
-  //   await expect(shopPage.productInTheCard).toBeDisplayed();
-  // });
 
   it("telnyx-19 Checking that the user has the ability to add a quantity product to the cart", async () => {
     await shopPage.clickHeaderMenuShop();
