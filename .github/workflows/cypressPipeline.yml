@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  cypress-run:
+  wdio-run:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,9 +23,9 @@ jobs:
           chrome-version: stable
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Run  tests with Allure
+      - name: Run tests with Allure
         run: npm run test:all
 
       - name: Run generate Allure
@@ -40,7 +40,7 @@ jobs:
           path: allure-report
 
   deploy-report:
-    needs: cypress-run
+    needs: wdio-run
     if: always()
     runs-on: ubuntu-latest
     permissions:
