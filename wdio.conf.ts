@@ -52,7 +52,11 @@ export const config: WebdriverIO.Config = {
     {
       browserName: "chrome",
       "goog:chromeOptions": {
-        args: ["--window-size=1920,1080"],
+        binary: "/usr/bin/google-chrome",
+        args: [
+          "--window-size=1920,1080",
+          `--user-data-dir=/tmp/chrome-data-${Date.now()}`,
+        ],
       },
     },
     // {
