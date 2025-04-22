@@ -53,7 +53,12 @@ export const config: WebdriverIO.Config = {
       browserName: "chrome",
       webSocketUrl: false,
       "goog:chromeOptions": {
-        args: ["--headless", "--window-size=1920,1080"],
+        args: [
+          "--headless",
+          "--disable-gpu",
+          "--no-sandbox",
+          "--window-size=1920,1080",
+        ],
       },
     },
     // {

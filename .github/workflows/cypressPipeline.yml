@@ -23,7 +23,7 @@ jobs:
           chrome-version: stable
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run  tests with Allure
         run: npm run test:all
