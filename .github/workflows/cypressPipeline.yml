@@ -1,4 +1,4 @@
-name: Cypress Tests with Allure Report
+name: Tests with Allure Report
 
 on:
   push:
@@ -20,6 +20,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Chromium
+        run: |
+          sudo apt update
+          sudo apt install -y chromium-browser
       - name: Run  tests with Allure
         run: npm run test:all
 
