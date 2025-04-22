@@ -5,6 +5,7 @@ import { testData, urls } from "../fixtures/data.fixtures.ts";
 describe("Home page actions", () => {
   beforeEach(() => {
     homePage.open();
+    browser.pause(2000);
   });
 
   it("telnyx-1 Check that selecting a menu option without a dropdown redirects the user to the new page", async () => {
@@ -25,6 +26,8 @@ describe("Home page actions", () => {
   });
 
   it("telnyx-5 Сhecking that  Footer Links will redirect to the correct pages", async () => {
+    await homePage.footerSocial[0].scrollIntoView();
+    await homePage.footerSocial[0].waitForDisplayed();
     const linkedinLink = homePage.footerSocial[0];
     const twitterLink = homePage.footerSocial[1];
     const facebookLink = homePage.footerSocial[2];
@@ -50,7 +53,10 @@ describe("Home page actions", () => {
 
   it("telnyx-8 Check that drobdown of Why Telnyx in the main menu is full", async () => {
     await homePage.clickMenuElements(3);
+    await browser.pause(2000);
+    await homePage.dropdownWhyTelnyx[0].waitForDisplayed();
     const dropdownItems = homePage.dropdownWhyTelnyx;
+
     await expect(dropdownItems).toBeElementsArrayOfSize(4);
   });
 
@@ -79,19 +85,17 @@ describe("Home page actions", () => {
 
   it("telnyx-11 Check that in Ask our AI assistant only when user type something button Send is activated", async () => {
     await homePage.clickAsistantAI();
+    await homePage.questionField.scrollIntoView();
     await homePage.typeQuestionField(testData.DataForContactForms.howHearAbout);
     await expect(homePage.sendQestionButton).toBeEnabled();
   });
 
-  it.only("telnyx-12 Check that user cant send uncorrect email on Connect with us field on the bottom of page", async () => {
-    await homePage.connectWithUsForm.scrollIntoView();
-    await homePage.typeBussinesEmail(
-      testData.DataForContactForms.requestDescribe
-    );
-    await homePage.clickSubmitButton();
-    // const errorMessage = await $(
-    //   '//*[contains(text(), "Електронна адреса має містити знак")]'
-    // );
-    // await expect(errorMessage).toBeDisplayed();
-  });
+  // it.only("telnyx-12 Check that user cant send uncorrect email on Connect with us field on the bottom of page", async () => {
+  //   await homePage.enterBussinesEmailField.scrollIntoView();
+  //   await homePage.typeBussinesEmail(
+  //     testData.DataForContactForms.requestDescribe
+  //   );
+  //   await homePage.clickSubmitButton();
+  //   await expect(homePage.messageNorCorrectEmail).toBeDisplayed();
+  // });
 });

@@ -5,11 +5,13 @@ import solutionsPage from "../pageobjects/solutionsPage.ts";
 describe("Solutions page actions", () => {
   beforeEach(() => {
     homePage.open();
+    browser.pause(5000);
   });
   it("telnyx-7 Check that Filter work correctly on solutions page", async () => {
     await homePage.clickMenuElements(1);
     await solutionsPage.clickSeeAllSolutions();
     await solutionsPage.clickSeeUseCases();
+    await solutionsPage.scrollTo.scrollIntoView();
     await solutionsPage.clickFilterBy();
     await solutionsPage.clickCheckboxFilterByFirst();
     await solutionsPage.clickCheckboxFilterBySecond();

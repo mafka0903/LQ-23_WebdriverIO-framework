@@ -77,9 +77,6 @@ class homePage extends basePage {
     return $(".c-cODSYQ.c-gGVcDH");
   }
 
-  public get connectWithUsForm() {
-    return $$(".c-cUhiIV")[7];
-  }
   public get enterBussinesEmailField() {
     return $$("#email")[1];
   }
@@ -88,11 +85,14 @@ class homePage extends basePage {
     return $(".c-eXJNdE.c-eXJNdE-cZntuR-desktop-true");
   }
 
-  //method for menuElements
+  public get messageNorCorrectEmail() {
+    return $('#email[data-gtm-form-interact-field-id="0"]');
+  }
+
   public async clickMenuElements(index: number) {
     await this.menuElements[index].click();
   }
-  //method for headerOptions
+
   public async clickHeaderOptions(index: number) {
     await this.headerOptions[index].click();
   }

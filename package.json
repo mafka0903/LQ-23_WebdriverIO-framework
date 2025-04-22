@@ -2,12 +2,19 @@
   "name": "LQ-23_WebdriverIO-framework",
   "type": "module",
   "devDependencies": {
+    "@wdio/allure-reporter": "^9.12.6",
     "@wdio/local-runner": "^9.12.5",
     "@wdio/mocha-framework": "^9.12.5",
     "@wdio/spec-reporter": "^9.12.3"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.ts"
+    "wdio": "wdio run ./wdio.conf.ts",
+    "test:shop": "npx wdio run ./wdio.conf.ts --spec actionsShopPage.ts",
+    "test:home": "npx wdio run ./wdio.conf.ts --spec actionsHomePage.ts",
+    "test:contact": "npx wdio run ./wdio.conf.ts --spec actionsContactUsPage.ts",
+    "test:pricing": "npx wdio run ./wdio.conf.ts --spec actionsPricingPage.ts",
+    "test:solutions": "npx wdio run ./wdio.conf.ts --spec actionsSolutionsPage.ts",
+    "test:all": "npx wdio run ./wdio.conf.ts"
   },
   "dependencies": {
     "@faker-js/faker": "^9.7.0"

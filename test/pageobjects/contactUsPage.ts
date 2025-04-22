@@ -45,11 +45,6 @@ class contactUsPage extends basePage {
     return $("#ValidMsgHow_did_you_hear_about_Telnyx_Open__c");
   }
 
-  /**
-   * a method to encapsule automation code to interact with the page
-   * e.g. to login using username and password
-   */
-
   public async selectSupport(reasonForContact: string) {
     await this.reasonForContact.selectByVisibleText(reasonForContact);
   }

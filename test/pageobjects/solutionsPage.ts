@@ -11,6 +11,10 @@ class solutionsPage extends basePage {
   public get seeUseCases() {
     return $(".c-buvHyO.c-buvHyO-iindzWH-css.c-fsSdbV");
   }
+  public get scrollTo() {
+    return $("h2.c-PJLV.c-fKwEGa");
+  }
+
   public get filterBy() {
     return $("div .c-hvmQSv");
   }

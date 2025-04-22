@@ -6,11 +6,12 @@ import pricingPage from "../pageobjects/pricingPage.ts";
 describe("Pricing page actions", () => {
   beforeEach(() => {
     homePage.open();
+    browser.pause(2000);
   });
   it("telnyx-6 Check that Download pricing is performed successfully", async () => {
     await homePage.clickMenuElements(2);
     await pricingPage.clickMessagingAPI();
-    await pricingPage.downloadFirstName.waitForDisplayed({ timeout: 20000 });
+    await pricingPage.pricingForm.scrollIntoView();
     await pricingPage.typeDownloadFirstName(
       testData.DataForContactForms.firstName
     );
@@ -20,7 +21,6 @@ describe("Pricing page actions", () => {
     await pricingPage.typeDownloadBussinessEmail(
       testData.DataForContactForms.businessEmail
     );
-
     await pricingPage.clickDownlosdSubmitButton();
     await expect(pricingPage.messageSuccesfulDownload).toBeExisting();
   });

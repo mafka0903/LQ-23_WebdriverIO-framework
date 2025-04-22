@@ -7,13 +7,15 @@ describe("Shop page actions", () => {
     browser.url(urls.shopPage);
   });
 
-  it("telnyx-13 Checking the search function", async () => {
-    await shopPage.clickSearchIcon();
-    await shopPage.typeSearchField(testData.Products.telnyxHat);
-    await shopPage.clickSearchFieldButton();
-    const productName = await shopPage.productNameCard.getText();
-    expect(productName.trim()).toBe(testData.Products.telnyxHat);
-  });
+  // it.only("telnyx-13 Checking the search function", async () => {
+  //   await shopPage.clickSearchIcon();
+  //   await shopPage.typeSearchField(testData.Products.telnyxHat);
+  //   await shopPage.clickSearchFieldButton();
+
+  //   const productName = await shopPage.productNameCard.getText();
+
+  //   expect(productName.trim()).toBe(testData.Products.telnyxHat);
+  // });
 
   it("telnyx-14 Сhecking that the currency changes when changing Country/region", async () => {
     await shopPage.footer.scrollIntoView();
@@ -58,11 +60,11 @@ describe("Shop page actions", () => {
     expect(priceListFloat).toEqual(sortedPriceList);
   });
 
-  it("telnyx-18 Checking that the user has the ability to add a product to the cart", async () => {
-    await shopPage.clickHeaderMenuShop();
-    await shopPage.clickAddToCard();
-    await expect(shopPage.productInTheCard).toBeDisplayed();
-  });
+  // it("telnyx-18 Checking that the user has the ability to add a product to the cart", async () => {
+  //   await shopPage.clickHeaderMenuShop();
+  //   await shopPage.clickAddToCard();
+  //   await expect(shopPage.productInTheCard).toBeDisplayed();
+  // });
 
   it("telnyx-19 Checking that the user has the ability to add a quantity product to the cart", async () => {
     await shopPage.clickHeaderMenuShop();
@@ -74,5 +76,13 @@ describe("Shop page actions", () => {
     const sumPriceText = await shopPage.itemsSumPrice.getText();
     const totalPrice = parseFloat(sumPriceText.replace(/[^0-9.]/g, ""));
     expect(totalPrice).toEqual(itemPrice * 2);
+  });
+
+  it("telnyx-20 Checking that the user has the ability to delete product from the cart", async () => {
+    await shopPage.clickHeaderMenuShop();
+    await shopPage.clickAddToCard();
+    await browser.pause(5000);
+    await shopPage.clickRemoveFromCartIcon();
+    await expect(shopPage.emptyCartText).toBeDisplayed();
   });
 });

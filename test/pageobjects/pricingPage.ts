@@ -6,8 +6,13 @@ class pricingPage extends basePage {
   }
 
   public get communications() {
-    return $$(".c-PJLV.c-ihLeEO.c-PJLV-cHtIMp-dark-false");
+    return $('//*[contains(text(),"Messaging API")]');
   }
+
+  public get pricingForm() {
+    return $("#mktoForm_2553");
+  }
+
   public get downloadFirstName() {
     return $("#FirstName");
   }
@@ -32,7 +37,7 @@ class pricingPage extends basePage {
    */
 
   public async clickMessagingAPI() {
-    await this.communications[0].click();
+    await this.communications.click();
   }
 
   public async typeDownloadFirstName(downloadFirstName: string) {

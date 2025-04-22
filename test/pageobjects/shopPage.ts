@@ -11,8 +11,12 @@ class shopPage {
   public get searchResult() {
     return $(".h2.center");
   }
+  public get productContainer() {
+    return $("#ProductGridContainer");
+  }
+
   public get productNameCard() {
-    return $("#CardLink--6960027533390");
+    return $('[id^="CardLink--"]');
   }
 
   public get footer() {
@@ -76,6 +80,13 @@ class shopPage {
     return $(".price.price--end");
   }
 
+  public get removeFromCartIcon() {
+    return $(".icon.icon-remove");
+  }
+  public get emptyCartText() {
+    return $(".cart__empty-text");
+  }
+
   /**
    * a method to encapsule automation code to interact with the page
    * e.g. to login using username and password
@@ -120,6 +131,10 @@ class shopPage {
   }
   public async clickIconPlus() {
     await this.iconPlus.click();
+  }
+
+  public async clickRemoveFromCartIcon() {
+    await this.removeFromCartIcon.click();
   }
 }
 

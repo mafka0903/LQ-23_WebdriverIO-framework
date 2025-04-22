@@ -6,6 +6,7 @@ import contactUsPage from "../pageobjects/contactUsPage.ts";
 describe("ContactUs page actions", () => {
   beforeEach(() => {
     homePage.open();
+    browser.pause(2000);
   });
   it("telnyx-2 Checking that the contact form is sent successfully when all required fields are filled in", async () => {
     await homePage.clickHeaderOptions(2);
