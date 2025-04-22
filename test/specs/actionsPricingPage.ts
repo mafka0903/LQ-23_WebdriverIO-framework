@@ -6,7 +6,7 @@ import pricingPage from "../pageobjects/pricingPage.ts";
 describe("Pricing page actions", () => {
   beforeEach(() => {
     homePage.open();
-    browser.pause(2000);
+    browser.pause(5000);
   });
   it("telnyx-6 Check that Download pricing is performed successfully", async () => {
     await homePage.clickMenuElements(2);

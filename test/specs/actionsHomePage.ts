@@ -5,7 +5,7 @@ import { testData, urls } from "../fixtures/data.fixtures.ts";
 describe("Home page actions", () => {
   beforeEach(() => {
     homePage.open();
-    browser.pause(5000);
+    browser.pause(6000);
   });
 
   it("telnyx-1 Check that selecting a menu option without a dropdown redirects the user to the new page", async () => {
