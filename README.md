@@ -9,7 +9,7 @@ https://docs.google.com/spreadsheets/d/1pT26wmaq4k3-KZaSXFkW4ekLebMD_UXhy0w0_Fx8
 
 ### Requirements
 
-Node v20.10.0
+    Node v20.10.0
 
 ### Steps to install
 
