@@ -87,11 +87,6 @@ class shopPage {
     return $(".cart__empty-text");
   }
 
-  /**
-   * a method to encapsule automation code to interact with the page
-   * e.g. to login using username and password
-   */
-
   public async clickSearchIcon() {
     await this.searchIcon.click();
   }

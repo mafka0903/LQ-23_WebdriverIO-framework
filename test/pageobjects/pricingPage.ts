@@ -31,11 +31,6 @@ class pricingPage extends basePage {
     return $(".c-PJLV.c-PJLV-kmbBBS-dark-true.c-PJLV-ghYBfS-lead-true");
   }
 
-  /**
-   * a method to encapsule automation code to interact with the page
-   * e.g. to login using username and password
-   */
-
   public async clickMessagingAPI() {
     await this.communications.click();
   }

@@ -22,11 +22,6 @@ class solutionsPage extends basePage {
     return $$(".c-gQHCxf.c-dVBrgH.c-efDovs");
   }
 
-  /**
-   * a method to encapsule automation code to interact with the page
-   * e.g. to login using username and password
-   */
-
   public async clickSeeUseCases() {
     await this.seeUseCases.click();
   }

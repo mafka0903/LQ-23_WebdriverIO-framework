@@ -6,6 +6,7 @@ export const config: WebdriverIO.Config = {
   // WebdriverIO supports running e2e tests as well as unit and component tests.
   runner: "local",
   tsConfigPath: "./tsconfig.json",
+
   //
   // ==================
   // Specify Test Files
@@ -48,30 +49,7 @@ export const config: WebdriverIO.Config = {
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
   // https://saucelabs.com/platform/platform-configurator
   //
-  capabilities: [
-    {
-      browserName: "chrome",
-      webSocketUrl: false,
-      "goog:chromeOptions": {
-        args: [
-          "--headless",
-          "--disable-gpu",
-          "--no-sandbox",
-          "--window-size=1920,1080",
-        ],
-      },
-    },
-    // {
-    //   browserName: "firefox",
-    // },
-    // {
-    //   browserName: "safari",
-    // },
-    // {
-    //   browserName: "MicrosoftEdge",
-    // },
-  ],
-
+  capabilities: [],
   //
   // ===================
   // Test Configurations

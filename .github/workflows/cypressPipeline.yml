@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Run tests with Allure
-        run: npm run test:all
+        run: npm run test:prod
 
       - name: Run generate Allure
         if: always()
