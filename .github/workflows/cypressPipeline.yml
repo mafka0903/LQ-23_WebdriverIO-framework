@@ -26,6 +26,7 @@ jobs:
            mytest
 
       - name: Install Allure CLI
+        if: always()
         run: npm install -g allure-commandline
 
       - name: Generate Allure report
